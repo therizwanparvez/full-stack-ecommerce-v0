@@ -1,0 +1,19 @@
+{
+  "name": "ecom_v0",
+  "version": "1.0.0",
+  "description": "Full Stack Ecommerce Website using MERN Stack",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "author": "therizwanparvez",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
