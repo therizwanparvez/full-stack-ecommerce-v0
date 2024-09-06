@@ -6,9 +6,8 @@ const app = express();
 
 app.use(express.json());
 
-// Middleware for Errors
-app.use(errorMiddleware);
-
 app.use("/api", product);
+
+app.use(errorMiddleware);
 
 module.exports = app;
