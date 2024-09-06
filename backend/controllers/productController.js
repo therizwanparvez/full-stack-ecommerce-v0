@@ -10,13 +10,14 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   res.status(201).json({
     success: true,
     message: "Product created successfully",
-    product,
   });
 });
 
 // Get All Product
 exports.getAllProduct = catchAsyncErrors(async (req, res, next) => {
-  const apiFeatures = new ApiFeatures(Product.find(), req.query).search();
+  const apiFeatures = new ApiFeatures(Product.find(), req.query)
+    .search()
+    .filter();
   const products = await apiFeatures.query;
 
   res.status(200).json({
