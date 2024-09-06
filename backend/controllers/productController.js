@@ -1,6 +1,7 @@
 const Product = require("../models/productModel");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
+const ApiFeatures = require("../utils/apiFeatures");
 
 // Create Product
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
@@ -15,7 +16,8 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
 // Get All Product
 exports.getAllProduct = catchAsyncErrors(async (req, res, next) => {
-  const products = await Product.find();
+  const apiFeatures = new ApiFeatures(Product.find(), req.query).search();
+  const products = await apiFeatures.query;
 
   res.status(200).json({
     success: true,
