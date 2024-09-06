@@ -3,7 +3,7 @@ const User = require("../models/userModel");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErros = require("../middlewares/catchAsyncErrors");
 
-// Register a User
+// Register an User
 exports.registerUser = catchAsyncErros(async (req, res, next) => {
   const { name, email, password } = req.body;
 
@@ -16,6 +16,8 @@ exports.registerUser = catchAsyncErros(async (req, res, next) => {
       url: "https://example.com/avatar/john.jpg",
     },
   });
+
+  const token = user.getJWTToken();
 
   res.status(201).json({
     success: true,
