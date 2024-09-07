@@ -56,3 +56,5 @@ exports.logoutUser = catchAsyncErros(async (req, res, next) => {
     message: "Logged out successfully",
   });
 });
+
+
